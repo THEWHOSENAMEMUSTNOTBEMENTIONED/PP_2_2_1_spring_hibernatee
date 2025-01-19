@@ -15,28 +15,54 @@
     </properties>
 
     <dependencies>
+        <!-- Spring Core -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.3.14</version>
+            <version>5.3.30</version> <!-- Совместимая версия с Hibernate -->
         </dependency>
+
+        <!-- Spring ORM (для интеграции с Hibernate) -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>5.3.14</version>
+            <version>5.3.30</version> <!-- Версия совместима с Hibernate 5.5.x -->
         </dependency>
+
+        <!-- Hibernate Core -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.6.3.Final</version>
+            <version>5.6.10.Final</version> <!-- Более новая стабильная версия Hibernate -->
         </dependency>
+
+        <!-- MySQL JDBC Driver -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.25</version>
+            <version>8.0.28</version> <!-- Совместимая версия для подключения к MySQL -->
         </dependency>
 
-    </dependencies>
+        <!-- Для работы с аннотациями в Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.3.30</version>
+        </dependency>
 
+        <!-- Зависимости для работы с транзакциями -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.3.30</version> <!-- Версия для работы с Spring JDBC -->
+        </dependency>
+
+        <!-- Для JPA (работа с аннотациями JPA) -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version> <!-- Совместимость с Hibernate 5.x -->
+        </dependency>
+    </dependencies>
 
 </project>
