@@ -21,30 +21,34 @@ public class MainApp {
       userService.add(new User("User1", "Lastname1", "user1@mail.ru", car1));
       userService.add(new User("User2", "Lastname2", "user2@mail.ru", car2));
 
-
+      // Вывод списка пользователей
       List<User> users = userService.listUsers();
       for (User user : users) {
          System.out.println("Id = " + user.getId());
          System.out.println("First Name = " + user.getFirstName());
          System.out.println("Last Name = " + user.getLastName());
          System.out.println("Email = " + user.getEmail());
+
+         Car userCar = user.getCar();
+         if (userCar != null) {
+            System.out.println("Car model = " + userCar.getModel());
+            System.out.println("Car series = " + userCar.getSeries());
+         } else {
+            System.out.println("No car assigned to this user.");
+         }
          System.out.println();
-
-
-      Car userCar = user.getCar();
-      if (userCar != null) {
-         System.out.println("Car model = " + userCar.getModel());
-         System.out.println("Car series = " + userCar.getSeries());
-      } else {
-         System.out.println("No car assigned to this user.");
       }
-      System.out.println();
-   }
-      List<User> userss = userService.getUserByCarModelAndSeries("Toyota", 1234);
-      for (User user : userss) {
+
+      // Получаем одного пользователя по модели и серии машины
+      User user = userService.getUserByCarModelAndSeries("Toyota", 1234);
+      if (user != null) {
          System.out.println("Found user: " + user.getFirstName() + " " + user.getLastName());
+      } else {
+         System.out.println("No user found with the specified car model and series.");
       }
 
       context.close();
    }
 }
+
+
